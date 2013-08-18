@@ -26,6 +26,9 @@
       <div class="span9">
         {{> books}}
       </div>
+      <div class="span9">
+        {{> book_update}}
+      </div>
     </div>
   </div>
 </body>
@@ -60,7 +63,21 @@
   </tr>
 </template>
 
-<template name="book_update">                                                                   |~                                                                                               
-<p>Thank you for updating your book:</p>                                                        |~                                                                                               
+<template name="book_update">
+<form class="form-horizontal">
+  <fieldset>
+    <legend>Editing "{{ book.title }}"</legend>
+    <div class="control-group">
+      <label>Title</label>
+      <input type="text" placeholder="{{ book.title }}"/>
+    </div>
+    <div class="control-group">
+      <label>Authors</label>
+      <input type="text" placeholder="{{ book.authors }}"/>
+    </div>
+    <button type="submit" class="btn">OK</button>
+    <button type="cancel" class="btn">Cancel</button>
+  </fieldset>
+</form>
 </template>
 

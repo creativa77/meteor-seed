@@ -7,3 +7,7 @@ Template.books.books = function() {
 Template.book.events({
   'mouseup tr': function() { console.log('clicked book: ' + this.title); }
 });
+
+Template.book_update.book = function() {
+  return Books.findOne();
+}
