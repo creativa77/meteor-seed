@@ -1,5 +1,11 @@
-/* CSS declarations go here */
-
+/* HACK1: Needed to make Bootstrap responsive behave correctly */
 body {
+  padding-top: 60px;
+}
+@media (max-width: 980px) {
+  body {
+    padding-top: 0;
+  }
 }
 
+/* /HACK1  */
