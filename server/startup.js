@@ -5,7 +5,7 @@ Meteor.startup(function () {
   // Note these are for an app running on localhost; we'll need to change
   // them for deployment
   if (!Accounts.loginServiceConfiguration.findOne({service: 'google'})) {
-    Accounts.insert({
+    Accounts.loginServiceConfiguration.insert({
       service: 'google',
       clientId: '74664641477.apps.googleusercontent.com',
       secret : 'giJls9204uwHUwYgAuXoGR8-',
@@ -14,7 +14,7 @@ Meteor.startup(function () {
   }
 
   if (!Accounts.loginServiceConfiguration.findOne({service: 'facebook'})) {
-    Accounts.insert({
+    Accounts.loginServiceConfiguration.insert({
       service: 'facebook',
       appId : '227251324090788',
       secret : '3b30264f85ca3df3b742d28c092d52e8',
