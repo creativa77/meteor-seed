@@ -14,7 +14,7 @@ Meteor.Router.add({
     console.log('The router is at path:', this.canonicalPath);
     console.log('Parameters:', this.params);
 
-    Session.set('currentBookId', id);
+    Session.set('currentBook', Books.findOne(id));
     // I believe this will render the 'book' template
     return 'book_update';
   }
