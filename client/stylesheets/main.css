@@ -1,6 +1,13 @@
-/* CSS declarations go here */
-
+/* HACK1: Needed to make Bootstrap responsive behave correctly */
 body {
+  padding-top: 60px;
+}
+/* /HACK1  */
+
+@media (max-width: 980px) {
+  body {
+    padding-top: 0;
+  }
 }
 
 /* For displaying the list of people */

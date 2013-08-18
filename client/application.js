@@ -15,12 +15,13 @@ Meteor.Router.add({
     console.log('Parameters:', this.params);
 
     Session.set('currentBookId', id);
-    // I believe this will render the 'book' template
-    return 'book';
+    // Render the 'book_update' template
+    return 'book_update';
   }
 
 });
 
+/* If you are not logged in, show the signin page */
 Meteor.Router.filters({
   'checkLoggedIn': function(page) {
     if (Meteor.loggingIn()) {
@@ -34,3 +35,8 @@ Meteor.Router.filters({
 });
 
 Meteor.Router.filter('checkLoggedIn');
+
+// Used for the navbar to render the current tab differently
+Handlebars.registerHelper('TabClassName', function(route) {
+  return (Meteor.Router.page() == route) ? 'active' : '';
+});
