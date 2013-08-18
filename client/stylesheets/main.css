@@ -3,3 +3,10 @@
 body {
 }
 
+/* For displaying the list of people */
+
+.items div {
+  display: inline-block;
+  padding: 5px;
+}
+
