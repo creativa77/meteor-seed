@@ -31,12 +31,12 @@
 </body>
 
 <template name="navlist">
-  <li class="active"><a href="/bookshelf">My bookshelf</a></li>
-  <li><a href="/books">Books</a></li>
-  <li><a href="/people">People</a></li>
+  <li class="{{TabClassName 'bookshelf'}}"><a href="/bookshelf">My bookshelf</a></li>
+  <li class="{{TabClassName 'books'}}"><a href="/books">Books</a></li>
+  <li class="{{TabClassName 'people'}}"><a href="/people">People</a></li>
 </template>
 
-<template name="books">
+<template name="bookshelf">
   <div class="row-fluid">
     <h3>My books</h3>
   </div>
@@ -44,7 +44,7 @@
     <tr>
       <th>Title</th>
       <th>Authors</th>
-      <th>Lent</th>
+      <th>Loaned</th>
     </tr>
   {{#each books}}
     {{> book}}
@@ -79,18 +79,14 @@
 </template>
 
 <template name="signin">
-  <h1>Login required to use this site</h1>
-  put a full-screen login widget here
+  <h2>Login required to use this site</h2>
+  Use the sign in link in the upper right corner
 </template>
 
-<template name="bookshelf">
-  <h1>My bookshelf</h1>
-</template>
-
-<template name="people">
-  <h1>My bookshelf</h1>
+<template name="books">
+  <h2>Other people's books</h2>
 </template>
 
 <template name="loading">
-  <h1>Logging you in, please wait</h1>
+  <h2>Logging you in, please wait</h2>
 </template>
