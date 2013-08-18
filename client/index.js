@@ -5,9 +5,11 @@ Template.books.books = function() {
 };
 
 Template.book.events({
-  'mouseup tr': function() { console.log('clicked book: ' + this.title); }
+  'mouseup tr': function() {
+    Meteor.Router.to('/books/'+this._id);
+  }
 });
 
 Template.book_update.book = function() {
-  return Books.findOne();
-}
+  return Books.findOne(Session.get('currentBookId'));
+};

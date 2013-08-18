@@ -16,7 +16,7 @@ Meteor.Router.add({
 
     Session.set('currentBookId', id);
     // I believe this will render the 'book' template
-    return 'book';
+    return 'book_update';
   }
 
 });
