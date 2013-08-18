@@ -14,8 +14,16 @@
     </div>
   </div>
 
-  {{> hello}}
+  {{> books}}
 </body>
+
+<template name="books">
+ <ul>
+ {{#each books}}
+   <li> {{name}}
+ {{/each}}
+ </ul>
+</template>
 
 <template name="hello">
   <h1>Hello World!</h1>

@@ -11,3 +11,7 @@ Template.hello.events({
       console.log("You pressed the button");
   }
 });
+
+Template.books.books = function() {
+  return Books.find().fetch();
+};
