@@ -26,6 +26,10 @@ Template.book.events({
     }
   }
 });
+Template.book.mailabout = function() {
+  var owner = Meteor.users.findOne(this.owner);
+  return "mailto:"+owner.profile.email+"?subject="+escape(this.title);
+};
 
 Template.book_update.book = function() {
   return Session.get('currentBook');

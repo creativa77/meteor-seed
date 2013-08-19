@@ -61,7 +61,7 @@
     <tr>
       <th>Title</th>
       <th>Authors</th>
-      <th>Owner</th>
+      <th colspan="2">Owner</th>
       <th>Loaned to</th>
     </tr>
   {{#each books}}
@@ -75,7 +75,8 @@
     <td>{{title}}</td>
     <td>{{authors}}</td>
     {{#if library}}
-    <td>{{owner}}</td>
+    <td><a href="{{mailabout}}"><img src="img/mail.png" width="20em"></a>
+    {{owner}}</td>
     {{/if}}
     <td>{{borrower}}</td>
   </tr>
