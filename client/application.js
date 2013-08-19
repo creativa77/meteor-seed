@@ -11,13 +11,19 @@ Meteor.Router.add({
   '/people': 'people',
 
   '/books/:id': function(id) {
+    /*
     console.log('The router is at path:', this.canonicalPath);
     console.log('Parameters:', this.params);
-
-    Session.set('currentBook', Books.findOne(id));
+    */
+    var book;
+    if(id == 'new') {
+      book = {};
+    } else {
+      book = Books.findOne(id);
+    }
+    Session.set('currentBook', book);
     return 'book_update';
   }
-
 });
 
 /* If you are not logged in, show the signin page */

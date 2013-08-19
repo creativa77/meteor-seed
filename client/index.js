@@ -1,6 +1,6 @@
 // Define views and templates in the application here
 
-Template.books.books = function() {
+Template.bookshelf.books = function() {
   return Books.find().fetch();
 };
 
@@ -26,11 +26,23 @@ Template.book_update.events({
     var book = Session.get('currentBook');
     updateNotEmpty('title', book);
     updateNotEmpty('authors', book);
-    Books.update(book._id, book);
-    Meteor.Router.to('/books');
+    if(book._id) {
+      Books.update(book._id, book);
+    } else {
+      Books.insert(book);
+    }
+    Meteor.Router.to('/bookshelf');
   },
   'click .cancel': function(ev) {
     ev.preventDefault();
-    Meteor.Router.to('/books');
+    Meteor.Router.to('/bookshelf');
+  },
+  'click .delete': function(ev) {
+    ev.preventDefault();
+    var book = Session.get('currentBook');
+    if(confirm("Are you sure you want to delete '" + book.title + "' from the database?")) {
+      Books.remove(book._id);
+    }
+    Meteor.Router.to('/bookshelf');
   }
-});
+ });

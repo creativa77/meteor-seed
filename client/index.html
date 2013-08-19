@@ -50,6 +50,7 @@
     {{> book}}
   {{/each}}
   </table>
+  <a href="/books/new">New book</a>
 </template>
 
 <template name="book">
@@ -63,7 +64,11 @@
 <template name="book_update">
 <form class="form-horizontal">
   <fieldset>
+    {{#if book._id}}
     <legend>Editing "{{ book.title }}"</legend>
+    {{else}}
+    <legend>Adding new book</legend>
+    {{/if}}
     <div class="control-group">
       <label>Title</label>
       <input id="bookInput_title" type="text" placeholder="{{ book.title }}"/>
@@ -74,6 +79,7 @@
     </div>
     <button type="submit" class="btn submit">OK</button>
     <button type="cancel" class="btn cancel">Cancel</button>
+    <button type="delete" class="btn delete">Delete</button>
   </fieldset>
 </form>
 </template>
