@@ -3,6 +3,11 @@
 Template.bookshelf.books = function() {
   return Books.find().fetch();
 };
+Template.bookshelf.events({
+  'click .add-book': function() {
+    Meteor.Router.to('/books/new');
+  }
+});
 
 Template.book.events({
   'mouseup tr': function() {

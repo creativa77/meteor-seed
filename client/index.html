@@ -50,7 +50,7 @@
     {{> book}}
   {{/each}}
   </table>
-  <a href="/books/new">New book</a>
+  <button class="btn add-book">Add book</button>
 </template>
 
 <template name="book">
@@ -79,7 +79,9 @@
     </div>
     <button type="submit" class="btn submit">OK</button>
     <button type="cancel" class="btn cancel">Cancel</button>
+    {{#if book._id}}
     <button type="delete" class="btn delete">Delete</button>
+    {{/if}}
   </fieldset>
 </form>
 </template>
