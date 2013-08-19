@@ -5,6 +5,12 @@
 // This subscription populates Meteor.users with all users published by the server
 Meteor.subscribe('users');
 
+Accounts.ui.config({
+  requestPermissions: {
+    facebook: ['email']
+  }
+});
+
 Meteor.Router.add({
   '/': 'books',
   '/bookshelf': 'bookshelf',
