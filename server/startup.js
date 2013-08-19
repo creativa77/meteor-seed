@@ -4,7 +4,7 @@ Meteor.startup(function () {
   // Add details about login services if not already there
   // Note these are for an app running on localhost; we'll need to change
   // them for deployment
-  if (!Accounts.loginServiceConfiguration.findOne({service: 'google'})) {
+/*  if (!Accounts.loginServiceConfiguration.findOne({service: 'google'})) {
     Accounts.loginServiceConfiguration.insert({
       service: 'google',
       clientId: '74664641477.apps.googleusercontent.com',
@@ -20,5 +20,5 @@ Meteor.startup(function () {
       secret : '3b30264f85ca3df3b742d28c092d52e8',
       _id : '8MtnYh9MiJdCdvgEd'
     });
-  }
+  }*/
 });
