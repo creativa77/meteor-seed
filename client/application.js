@@ -6,6 +6,7 @@
 Meteor.subscribe('users');
 
 Meteor.Router.add({
+  '/': 'bookshelf',
   '/bookshelf': 'bookshelf',
   '/books': 'books',
   '/people': 'people',

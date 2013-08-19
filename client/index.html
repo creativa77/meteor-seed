@@ -38,7 +38,7 @@
 
 <template name="bookshelf">
   <div class="row-fluid">
-    <h3>My books</h3>
+    <h3>My bookshelf</h3>
   </div>
   <table class="table table-striped table-hover">
     <tr>
@@ -51,6 +51,22 @@
   {{/each}}
   </table>
   <button class="btn add-book">Add book</button>
+</template>
+
+<template name="books">
+  <div class="row-fluid">
+    <h3>Available books</h3>
+  </div>
+  <table class="table table-striped table-hover">
+    <tr>
+      <th>Title</th>
+      <th>Authors</th>
+      <th>Loaned</th>
+    </tr>
+  {{#each books}}
+    {{> book}}
+  {{/each}}
+  </table>
 </template>
 
 <template name="book">
@@ -89,10 +105,6 @@
 <template name="signin">
   <h2>Login required to use this site</h2>
   Use the sign in link in the upper right corner
-</template>
-
-<template name="books">
-  <h2>Other people's books</h2>
 </template>
 
 <template name="loading">

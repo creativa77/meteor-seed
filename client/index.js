@@ -9,6 +9,10 @@ Template.bookshelf.events({
   }
 });
 
+Template.books.books = function() {
+  return Books.find().fetch();
+};
+
 Template.book.events({
   'mouseup tr': function() {
     Meteor.Router.to('/books/'+this._id);
@@ -31,9 +35,14 @@ Template.book_update.events({
     var book = Session.get('currentBook');
     updateNotEmpty('title', book);
     updateNotEmpty('authors', book);
+
+    // If it's an existing book, update it only
     if(book._id) {
       Books.update(book._id, book);
+
+    // If it's a new book, insert it
     } else {
+      // Add a pointer to the owner of the book
       book.owner = Meteor.userId();
       Books.insert(book);
     }
