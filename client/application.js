@@ -6,7 +6,7 @@
 Meteor.subscribe('users');
 
 Meteor.Router.add({
-  '/': 'bookshelf',
+  '/': 'books',
   '/bookshelf': 'bookshelf',
   '/books': 'books',
   '/people': 'people',
@@ -24,6 +24,10 @@ Meteor.Router.add({
     }
     Session.set('currentBook', book);
     return 'book_update';
+  },
+  '/books/:id/lend': function(id) {
+    Session.set('currentBook', Books.findOne(id));
+    return 'lend';
   }
 });
 

@@ -13,9 +13,17 @@ Template.books.books = function() {
   return Books.find().fetch();
 };
 
+Template.book.owner = function() {
+  return this.owner && getFriendlyName(Meteor.users.findOne(this.owner));
+};
+Template.book.library = function() {
+  return (Meteor.Router.page() == 'books');
+};
 Template.book.events({
   'mouseup tr': function() {
-    Meteor.Router.to('/books/'+this._id);
+    if(! Template.book.library()) {
+      Meteor.Router.to('/books/'+this._id);
+    }
   }
 });
 
@@ -59,5 +67,38 @@ Template.book_update.events({
       Books.remove(book._id);
     }
     Meteor.Router.to('/bookshelf');
+  },
+  'click .recall': function(ev) {
+    ev.preventDefault();
+    var book = Session.get('currentBook');
+    if(confirm("Are you sure you want to recall '" + book.title + "'? Have you received it back?")) {
+      book.borrower = undefined;
+      book.notes = undefined;
+      Books.update(book._id, book);
+    }
+    Meteor.Router.to('/bookshelf');
+  },
+  'click .lend': function(ev) {
+    ev.preventDefault();
+    Meteor.Router.to('/books/'+Session.get('currentBook')._id+'/lend');
   }
- });
+});
+
+Template.lend.book = function() {
+  return Session.get('currentBook');
+};
+Template.lend.events({
+  'click .submit': function(ev) {
+    ev.preventDefault();
+    var book = Session.get('currentBook');
+    book.borrower = $('#lendInput_borrower').val();
+    book.notes = $('#lendInput_notes').val();
+    Books.update(book._id, book);
+    Meteor.Router.to('/bookshelf');
+  },
+  'click .cancel': function(ev) {
+    ev.preventDefault();
+    Meteor.Router.to('/bookshelf');
+  }
+});
+

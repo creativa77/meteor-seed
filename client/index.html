@@ -31,9 +31,9 @@
 </body>
 
 <template name="navlist">
-  <li class="{{TabClassName 'bookshelf'}}"><a href="/bookshelf">My bookshelf</a></li>
   <li class="{{TabClassName 'books'}}"><a href="/books">Books</a></li>
   <li class="{{TabClassName 'people'}}"><a href="/people">People</a></li>
+  <li class="{{TabClassName 'bookshelf'}}"><a href="/bookshelf">My bookshelf</a></li>
 </template>
 
 <template name="bookshelf">
@@ -44,7 +44,7 @@
     <tr>
       <th>Title</th>
       <th>Authors</th>
-      <th>Loaned</th>
+      <th>Loaned to</th>
     </tr>
   {{#each books}}
     {{> book}}
@@ -61,7 +61,8 @@
     <tr>
       <th>Title</th>
       <th>Authors</th>
-      <th>Loaned</th>
+      <th>Owner</th>
+      <th>Loaned to</th>
     </tr>
   {{#each books}}
     {{> book}}
@@ -73,7 +74,10 @@
   <tr>
     <td>{{title}}</td>
     <td>{{authors}}</td>
-    <td>TBE</td>
+    {{#if library}}
+    <td>{{owner}}</td>
+    {{/if}}
+    <td>{{borrower}}</td>
   </tr>
 </template>
 
@@ -93,14 +97,33 @@
       <label>Authors</label>
       <input id="bookInput_authors" type="text" placeholder="{{ book.authors }}"/>
     </div>
-    <button type="submit" class="btn submit">OK</button>
-    <button type="cancel" class="btn cancel">Cancel</button>
+    <button class="btn submit">OK</button>
+    <button class="btn cancel">Cancel</button>
     {{#if book._id}}
-    <button type="delete" class="btn delete">Delete</button>
+    <button class="btn delete">Delete</button>
+    <button class="btn lend">Lend</button>
+    <button class="btn recall">Recall</button>
     {{/if}}
   </fieldset>
 </form>
 </template>
+
+<template name="lend">
+<form class="form-horizontal">
+  <fieldset>
+    <legend>Lending "{{ book.title }}"</legend>
+    <div class="control-group">
+      <label>Borrower</label>
+      <input id="lendInput_borrower" type="text"/>
+    </div>
+    <div class="control-group">
+      <label>Notes</label>
+      <input id="lendInput_notes" type="text"/>
+    </div>
+    <button class="btn submit">OK</button>
+    <button class="btn cancel">Cancel</button>
+  </fieldset>
+</form></template>
 
 <template name="signin">
   <h2>Login required to use this site</h2>
