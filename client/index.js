@@ -87,6 +87,13 @@ Template.book_update.events({
 Template.lend.book = function() {
   return Session.get('currentBook');
 };
+Template.lend.rendered = function() {
+  $('#lendInput_borrower').typeahead({
+    source: Meteor.users.find().fetch().map(function(user) {
+      return getFriendlyName(user);
+    })
+  });
+};
 Template.lend.events({
   'click .submit': function(ev) {
     ev.preventDefault();
