@@ -101,8 +101,11 @@
     <button class="btn cancel">Cancel</button>
     {{#if book._id}}
     <button class="btn delete">Delete</button>
-    <button class="btn lend">Lend</button>
+    {{#if book.borrower}}
     <button class="btn recall">Recall</button>
+    {{else}}
+    <button class="btn lend">Lend</button>
+    {{/if}}
     {{/if}}
   </fieldset>
 </form>

@@ -92,6 +92,7 @@ Template.lend.events({
     ev.preventDefault();
     var book = Session.get('currentBook');
     book.borrower = $('#lendInput_borrower').val();
+    book.borrowed_on = (new Date()).getTime();
     book.notes = $('#lendInput_notes').val();
     Books.update(book._id, book);
     Meteor.Router.to('/bookshelf');
