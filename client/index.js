@@ -1,7 +1,7 @@
 // Define views and templates in the application here
 
 Template.bookshelf.books = function() {
-  return Books.find().fetch();
+  return Books.find({owner: Meteor.userId()}).fetch();
 };
 Template.bookshelf.events({
   'click .add-book': function() {
@@ -34,6 +34,7 @@ Template.book_update.events({
     if(book._id) {
       Books.update(book._id, book);
     } else {
+      book.owner = Meteor.userId();
       Books.insert(book);
     }
     Meteor.Router.to('/bookshelf');
