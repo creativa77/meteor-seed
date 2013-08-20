@@ -1,0 +1,44 @@
+{
+  "builtBy": "meteor/8",
+  "sliceDependencies": {
+    "browser.json": {
+      "files": {
+        "/Users/tlau/src/scifiswap/packages/npm/package.js": "1a6d25f3da008db52f67cd929a1d05141580d121"
+      },
+      "directories": []
+    },
+    "os.json": {
+      "files": {
+        "/Users/tlau/src/scifiswap/packages/npm/package.js": "1a6d25f3da008db52f67cd929a1d05141580d121",
+        "/Users/tlau/src/scifiswap/packages/npm/index.js": "c503cd0414bb1c380350c71d7c18926d8baa9504",
+        "/Users/tlau/src/scifiswap/packages.json": "0dd925cbb624cc02fbf92f964c95eedf9b8db5e4"
+      },
+      "directories": []
+    },
+    "tests.browser.json": {
+      "files": {
+        "/Users/tlau/src/scifiswap/packages/npm/package.js": "1a6d25f3da008db52f67cd929a1d05141580d121"
+      },
+      "directories": []
+    },
+    "tests.os.json": {
+      "files": {
+        "/Users/tlau/src/scifiswap/packages/npm/package.js": "1a6d25f3da008db52f67cd929a1d05141580d121",
+        "/Users/tlau/src/scifiswap/packages/npm/index.js": "c503cd0414bb1c380350c71d7c18926d8baa9504",
+        "/Users/tlau/src/scifiswap/packages/npm/test.js": "498064ac82fb9272f982e909c5f248c2dcf8a249"
+      },
+      "directories": []
+    }
+  },
+  "pluginDependencies": {
+    "files": {
+      "/Users/tlau/src/scifiswap/packages/npm/package.js": "1a6d25f3da008db52f67cd929a1d05141580d121"
+    },
+    "directories": []
+  },
+  "pluginProviderPackages": {
+    "npm": "/Users/tlau/src/scifiswap/packages/npm",
+    "meteor": "/Users/tlau/.meteor/packages/meteor/e3bd161f1e"
+  },
+  "source": "/Users/tlau/src/scifiswap/packages/npm"
+}

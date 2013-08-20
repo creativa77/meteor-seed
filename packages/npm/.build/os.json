@@ -1,0 +1,28 @@
+{
+  "format": "unipackage-slice-pre1",
+  "packageVariables": [],
+  "uses": [
+    {
+      "package": "meteor"
+    }
+  ],
+  "node_modules": "npm/node_modules",
+  "resources": [
+    {
+      "type": "asset",
+      "file": "os/packages.json",
+      "length": 27,
+      "offset": 0,
+      "servePath": "/packages.json",
+      "path": "../../packages.json"
+    },
+    {
+      "type": "prelink",
+      "file": "os/packages/npm.js",
+      "length": 3377,
+      "offset": 0,
+      "servePath": "/packages/npm.js",
+      "sourceMap": "os/packages/npm.js.map"
+    }
+  ]
+}

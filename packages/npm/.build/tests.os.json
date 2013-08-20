@@ -1,0 +1,21 @@
+{
+  "format": "unipackage-slice-pre1",
+  "noExports": true,
+  "packageVariables": [],
+  "uses": [
+    {
+      "package": "meteor"
+    }
+  ],
+  "node_modules": "npm/node_modules",
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "tests.os/packages/npmtests.js",
+      "length": 5560,
+      "offset": 0,
+      "servePath": "/packages/npm:tests.js",
+      "sourceMap": "tests.os/packages/npmtests.js.map"
+    }
+  ]
+}
