@@ -21,7 +21,7 @@ Meteor.startup(function () {
         secret : '3b30264f85ca3df3b742d28c092d52e8',
         _id : '8MtnYh9MiJdCdvgEd'
       });
-    } else if(Meteor.absoluteUrl().indexOf('scifiswap.meteor.com') {
+    } else if(Meteor.absoluteUrl().indexOf('scifiswap.meteor.com')) {
       // TODO: Type in service configuration for online service here
     }
   }
