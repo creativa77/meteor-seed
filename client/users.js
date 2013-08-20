@@ -9,3 +9,10 @@ Template.user.friendlyname = function() {
 Template.user.icon = function() {
   return getIcon(this);
 }
+
+Template.user.events({
+  'click img': function() {
+    console.log('click');
+    Meteor.Router.to('/bookshelf/'+this._id);
+  }
+});

@@ -13,7 +13,14 @@ Accounts.ui.config({
 
 Meteor.Router.add({
   '/': 'books',
-  '/bookshelf': 'bookshelf',
+  '/bookshelf': function() {
+    Session.set('currentOwner', Meteor.userId());
+    return 'bookshelf';
+  },
+  '/bookshelf/:id': function(id) {
+    Session.set('currentOwner', id);
+    return 'bookshelf';
+  },
   '/books': 'books',
   '/people': 'people',
 

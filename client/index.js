@@ -1,7 +1,13 @@
 // Define views and templates in the application here
 
 Template.bookshelf.books = function() {
-  return Books.find({owner: Meteor.userId()}).fetch();
+  return Books.find({ owner: Session.get('currentOwner') }).fetch();
+};
+Template.bookshelf.mine = function() {
+  return (Session.get('currentOwner') == Meteor.userId());
+};
+Template.bookshelf.ownerName = function() {
+  return (Meteor.users.findOne(Session.get('currentOwner')).profile.name);
 };
 Template.bookshelf.events({
   'click .add-book': function() {
