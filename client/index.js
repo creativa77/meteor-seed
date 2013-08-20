@@ -45,6 +45,10 @@ Template.book_update.events({
   'click .submit': function(ev) {
     ev.preventDefault();
     var book = Session.get('currentBook');
+
+    var isbn = $('#bookInput_isbn').val();
+    getByISBN(isbn, console.log.bind(console))
+
     updateNotEmpty('title', book);
     updateNotEmpty('authors', book);
 

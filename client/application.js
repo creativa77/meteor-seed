@@ -56,3 +56,7 @@ Meteor.Router.filter('checkLoggedIn');
 Handlebars.registerHelper('TabClassName', function(route) {
   return (Meteor.Router.page() == route) ? 'active' : '';
 });
+
+getByISBN = function getByISBN(isbn, callback) {
+  Meteor.call('getByISBN', isbn, callback);
+};
