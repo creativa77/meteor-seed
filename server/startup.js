@@ -14,14 +14,16 @@ Meteor.startup(function () {
   }*/
 
   if (!Accounts.loginServiceConfiguration.findOne({service: 'facebook'})) {
-    /*
-    Accounts.loginServiceConfiguration.insert({
-      service: 'facebook',
-      appId : '227251324090788',
-      secret : '3b30264f85ca3df3b742d28c092d52e8',
-      _id : '8MtnYh9MiJdCdvgEd'
-    });
-    */
+    if(Meteor.absoluteUrl().indexOf('localhost') != -1) {
+      Accounts.loginServiceConfiguration.insert({
+        service: 'facebook',
+        appId : '227251324090788',
+        secret : '3b30264f85ca3df3b742d28c092d52e8',
+        _id : '8MtnYh9MiJdCdvgEd'
+      });
+    } else if(Meteor.absoluteUrl().indexOf('scifiswap.meteor.com') {
+      // TODO: Type in service configuration for online service here
+    }
   }
 });
 
