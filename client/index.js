@@ -48,12 +48,40 @@ function updateNotEmpty(field, map) {
   }
 }
 
+function updateFromISBN(err, result) {
+  if (err) {
+    alert(err);
+    return;
+  }
+
+
+  var items = result.ItemLookupResponse.Items;
+  if (items.length > 0) {
+    var item = items[0].Item[0];
+    console.log('item:', item);
+    Session.set('amazonResult', item);
+    $('#bookInput_title').val(item.ItemAttributes[0].Title[0]);
+    if (item.ItemAttributes[0].Author) {
+      $('#bookInput_authors').val(item.ItemAttributes[0].Author.join(', '));
+    } else if (item.ItemAttributes[0].Creator) {
+      $('#bookInput_authors').val(_(item.ItemAttributes[0].Creator).
+        pluck('_').join(', '));
+    }
+    $('#bookImage').attr('src', item.MediumImage[0].URL[0]);
+  }
+}
+
 Template.book_update.events({
   'click .submit': function(ev) {
     ev.preventDefault();
     var book = Session.get('currentBook');
+    var amazonData = Session.get('amazonResult');
+
     updateNotEmpty('title', book);
     updateNotEmpty('authors', book);
+    if (amazonData) {
+      book['imageURL'] = amazonData.MediumImage[0].URL[0];
+    }
 
     // If it's an existing book, update it only
     if(book._id) {
@@ -66,6 +94,14 @@ Template.book_update.events({
       Books.insert(book);
     }
     Meteor.Router.to('/bookshelf');
+  },
+  'click .lookup': function(ev) {
+    ev.preventDefault();
+    var isbn = $('#bookInput_isbn').val();
+    getByISBN(isbn, updateFromISBN);
+
+    $('#bookInput_title').attr('disabled', 'disabled');
+    $('#bookInput_authors').attr('disabled', 'disabled');
   },
   'click .cancel': function(ev) {
     ev.preventDefault();
