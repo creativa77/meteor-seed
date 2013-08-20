@@ -41,7 +41,7 @@ Meteor.methods({
           'SearchIndex': 'Books',
           'IdType': 'ISBN',
           'ItemId': isbn,
-          'ResponseGroup': 'Large'
+          'ResponseGroup': 'Medium'
           }, function(error, results) {
             if (error) console.log('Error in Amazon query:', error);
             console.log('Results from Amazon:', results);

@@ -88,22 +88,34 @@
     {{#if book._id}}
     <legend>Editing "{{ book.title }}"</legend>
     {{else}}
-    <legend>Adding new book</legend>
-    {{/if}}
+    <legend>Add a new book</legend>
     <div class="control-group">
       <label>ISBN</label>
       <input id="bookInput_isbn" type="text" placeholder="{{ book.isbn }}"/>
+      <button class="btn lookup">Look up</button>
     </div>
-    <div class="control-group">
-      <label>Title</label>
-      <input id="bookInput_title" type="text" placeholder="{{ book.title }}"/>
+
+    <p> -- or --</p>
+    <br>
+    {{/if}}
+
+    <div class="row-fluid">
+      <div class="span9">
+        <div class="control-group">
+          <label>Title</label>
+          <input class="input-block-level" id="bookInput_title" type="text" placeholder="{{ book.title }}"/>
+        </div>
+        <div class="control-group">
+          <label>Authors</label>
+          <input class="input-block-level" id="bookInput_authors" type="text" placeholder="{{ book.authors }}"/>
+        </div>
+      </div>
+      <div class="span3">
+        <img id="bookImage" src="{{book.imageURL}}"/>
+      </div>
     </div>
-    <div class="control-group">
-      <label>Authors</label>
-      <input id="bookInput_authors" type="text" placeholder="{{ book.authors }}"/>
-    </div>
-    <button class="btn submit">OK</button>
     <button class="btn cancel">Cancel</button>
+    <button class="btn submit">Save</button>
     {{#if book._id}}
     <button class="btn delete">Delete</button>
     {{#if book.borrower}}
