@@ -25,11 +25,12 @@ Template.book.owner = function() {
 Template.book.library = function() {
   return (Meteor.Router.page() == 'books');
 };
+Template.book.mine = function() {
+  return (this.owner == Meteor.userId());
+};
 Template.book.events({
-  'mouseup tr': function() {
-    if(! Template.book.library()) {
-      Meteor.Router.to('/books/'+this._id);
-    }
+  'click .edit': function() {
+    Meteor.Router.to('/books/'+this._id);
   }
 });
 Template.book.mailabout = function() {
