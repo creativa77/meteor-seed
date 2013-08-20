@@ -43,9 +43,6 @@ Meteor.methods({
           'ItemId': isbn,
           'ResponseGroup': 'Medium'
           }, function(error, results) {
-            if (error) console.log('Error in Amazon query:', error);
-            console.log('Results from Amazon:', results);
-            console.log('Results.Items:', results.ItemLookupResponse.Items);
             done(error, results);
           });
       } catch (err) {

@@ -54,7 +54,12 @@ function updateFromISBN(err, result) {
     console.log('item:', item);
     Session.set('amazonResult', item);
     $('#bookInput_title').val(item.ItemAttributes[0].Title[0]);
-    $('#bookInput_authors').val(item.ItemAttributes[0].Author[0]);
+    if (item.ItemAttributes[0].Author) {
+      $('#bookInput_authors').val(item.ItemAttributes[0].Author.join(', '));
+    } else if (item.ItemAttributes[0].Creator) {
+      $('#bookInput_authors').val(_(item.ItemAttributes[0].Creator).
+        pluck('_').join(', '));
+    }
     $('#bookImage').attr('src', item.MediumImage[0].URL[0]);
   }
 }
