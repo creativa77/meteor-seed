@@ -1,5 +1,8 @@
 Accounts.onCreateUser(function(options, user) {
+  console.log(user);
   user.profile = options.profile || {};
-  user.profile.email = user.services.facebook.email;
+  user.profile.email = user.services.persona.email;
+  user.username = user.profile.email;
+  console.log(user);
   return user;
 });

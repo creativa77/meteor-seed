@@ -3,7 +3,8 @@
   "dependencies": {
     "basePackages": {
       "router": {},
-      "npm": {}
+      "npm": {},
+      "accounts-persona": {}
     },
     "packages": {
       "router": {
@@ -15,6 +16,11 @@
         "git": "https://github.com/arunoda/meteor-npm.git",
         "tag": "v0.2.2",
         "commit": "ad83acff83385d5ea05997c8bbc2d7493ba4c04e"
+      },
+      "accounts-persona": {
+        "git": "https://github.com/vladikoff/meteor-accounts-persona.git",
+        "tag": "v0.1.5",
+        "commit": "7b57c91ad06b67fe49aee93e6148fa4234707023"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
