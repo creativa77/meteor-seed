@@ -19,8 +19,8 @@
       },
       "accounts-persona": {
         "git": "https://github.com/vladikoff/meteor-accounts-persona.git",
-        "tag": "v0.1.5",
-        "commit": "7b57c91ad06b67fe49aee93e6148fa4234707023"
+        "tag": "v0.1.6",
+        "commit": "5b8110dad901a69f674e6a0381e074567fe1b4d9"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

@@ -11,5 +11,4 @@ bootstrap
 accounts-ui
 router
 npm
-accounts-oauth
 accounts-persona
